@@ -17,8 +17,9 @@ class CommentList extends Component{
       this.props.onDeleteComment(index)
     }
   }
-  render() {
 
+  render() {
+    console.log(this.props.comments)
     return (
       <div>
         {this.props.comments.map((comment, index) => 
