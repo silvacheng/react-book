@@ -22,7 +22,7 @@ class CommentListContainer extends Component{
   }
 
   handleDeleteComment = (index) => {
-    const { comments } = this.state
+    const { comments } = this.props
     const newComments = [
       ...comments.slice(0, index),
       ...comments.slice(index + 1)
