@@ -15,6 +15,17 @@ class Comment extends Component {
     }
   }
 
+  componentWillMount = () => {
+    this._updateTimestring()
+    this._timer = setInterval(() => {
+      this._updateTimestring()
+    }, 5000)
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this._timer)
+  }
+
   handleDeleteComment = () => {
     if(this.props.onDeleteComment) {
       this.props.onDeleteComment(this.props.index)
@@ -29,17 +40,6 @@ class Comment extends Component {
     })
   }
 
-  componentWillMount = () => {
-    this._updateTimestring()
-    this._timer = setInterval(() => {
-      this._updateTimestring()
-    }, 5000)
-  }
-
-  componentWillUnmount = () => {
-    clearInterval(this._timer)
-  }
-  
   _getProcessedContent = (content) => {
     return content
     .replace(/&/g, "&amp;")
@@ -48,7 +48,6 @@ class Comment extends Component {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;")
     .replace(/`([\S\s]+?)`/g, '<code>$1</code>')
- 
   }
 
   render() {

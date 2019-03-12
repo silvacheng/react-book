@@ -94,7 +94,7 @@ body {
   flex-shrink: 0;
 }
 
-.comment-user {
+.comment-username {
   color: #00a3cf;
   font-style: italic;
 }
